@@ -5,7 +5,7 @@ $result;
 $failHeader = "<h1>Contact request invalid</h1>";
 $failBody = "<p>The following problems were found in your contact request submission:</p>";
 $failList = "<ul>";
-$failButton = "<a class=\"return-btn\" href=\"./inputForm.html\">Return to form</a>";
+$failButton = "<a class=\"return-btn\" href=\"./index.html\">Return to form</a>";
 
 $successHeader = "<h1>Contact request submitted</h1>";
 $successBody = "<p>Dear ";
@@ -66,26 +66,26 @@ if ($gradeLevel == "") {
 }
 
 if ($contactMethods == "") {
-	$failList .= "<li>A <strong>major</strong> was not provided (required field).</li>";
-}
-
-if (!is_array($contactMethods)) {
-	$contactMethods = [$contactMethods];
-}
-
-if ($contactMethods != "") {
-	$output = [];
-	foreach ($contactMethods as $method) {
-		try {
-			array_push($output, match($method) {
-				"program_info" => "Information about DMACC's programs",
-				"advisor" => "Steps to contact a program advisor",
-			});
-		} catch (UnhandledMatchError $err) {
-			$failList .= "<li>A <strong>contact method</strong> provided was not an option present on the form.</li>";
-		}
+	$failList .= "<li>A <strong>contact method</strong> was not provided (required field).</li>";
+} else {
+	if (!is_array($contactMethods)) {
+		$contactMethods = [$contactMethods];
 	}
-	$contactMethods = $output;
+
+	if ($contactMethods != "") {
+		$output = [];
+		foreach ($contactMethods as $method) {
+			try {
+				array_push($output, match($method) {
+					"program_info" => "Information about DMACC's programs",
+					"advisor" => "Steps to contact a program advisor",
+				});
+			} catch (UnhandledMatchError $err) {
+				$failList .= "<li>A <strong>contact method</strong> provided was not an option present on the form.</li>";
+			}
+		}
+		$contactMethods = $output;
+	}
 }
 
 
