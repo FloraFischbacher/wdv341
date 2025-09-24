@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV101 Intro HTML and CSS</title>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+    * {
+      margin: 0;
+    }
+
+    html {
+        background-color: #003EA8;
+        font-size: 14pt;
+    }
+
+    body {
+        font-family: 'Lato', sans-serif;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+	form {
+		width:600px;
+		margin: 5em auto;
+		background-color: #FFF;
+		padding: 1em;
+		border-radius: 10px;
+		box-shadow: 0px 15px 25px 0px rgba(0, 0, 0, 0.33);
+	}
+	
+	form > legend {
+        margin-bottom: 0.5rem;
+        padding: 2rem;
+		font-size: 28pt;
+		font-weight: 800;
+		text-align:center;
+	}
+	
+	fieldset {
+        border: transparent;
+        box-sizing: border-box;
+	}
+
+	fieldset fieldset {
+        border: 1px dashed rgba(0, 0, 0, 0.33);
+        border-radius: 3px;
+        padding: 0.5em 1em 1em 1em;
+	}
+
+	fieldset fieldset > legend {
+        font-size: 14pt;
+        padding: 0 0.75em;
+	}
+
+	fieldset fieldset > article {
+        font-size: 13pt;
+	}
+
+	fieldset:not(fieldset fieldset) {
+        margin-bottom: 1em;
+        border-top: 1px solid black;
+	}
+
+	fieldset:not(fieldset fieldset) > legend {
+        font-size: 16pt;
+        font-weight: 600;
+        padding: 0 0.75em;
+	}
+
+    input, select {
+        box-sizing: border-box;
+        font-family: 'Lato', sans-serif;
+        font-size: 13pt;
+        padding: 0.66em;
+    }
+
+    input[type="text"], input[type="email"] {
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid rgba(0, 0, 0, 0.33);
+    }
+
+    select {
+      border-radius: 3px;
+      background-color: rgb(240, 240, 240);
+      border: 1px solid rgba(0, 0, 0, 0.33);
+    }
+
+    select:active {
+      background-color: rgb(240, 240, 240);
+    }
+
+    select:hover {
+      background-color: rgb(220, 220, 220);
+    }
+
+    label + input[type="text"], label + input[type="email"] {
+        margin-top: 0.5em;
+    }
+
+    .contact, .schooling, .contact-method {
+        margin-top: 0.5em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+
+    .contact > article {
+        flex: 1 1 40%;
+    }
+
+    .schooling > *, .contact-method > * {
+        flex: 1 1 100%;
+    }
+
+    /* Horrible way of doing this, but I'm making it quick for myself. */
+    article:has(#high_school), article:has(#freshman) {
+        padding-bottom: 0.25em;
+    }
+
+    #high_school, #freshman, #sophomore {
+        margin-right: 0.66em;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 1em;
+    }
+
+    .buttons > input {
+        flex: 1 1 0;
+    }
+
+    #major {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 1em;
+    }
+
+    #major label {
+        flex: 1 1 100%;
+    }
+
+    #major select {
+        flex: 1 1 100%;
+        margin-top: 0.5em;
+    }
+
+    .school-info {
+        display: flex;
+        gap: 1em;
+    }
+
+    #checkboxes {
+        margin-top: 0.5em;
+        padding: 1em;
+    }
+
+    #checkboxes article:not(article:last-of-type) {
+        padding-bottom: 0.25em;
+    }
+
+    #checkboxes article > input {
+        margin-right: 0.66em;
+    }
+
+    textarea {
+        box-sizing: border-box;
+        width: 100%;
+        font-family: 'Lato', sans-serif;
+        font-size: 13pt;
+        padding: 10px;
+        margin-top: 0.5em;
+        resize: vertical;
+    }
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="formHandler.php">
+
+  <legend>Student Contact Form</legend>
+  
+  <fieldset>
+    <legend>Personal information</legend>
+    <div class="contact">
+      <article>
+        <label for="first_name">First name:</label>
+        <input type="text" name="first_name" id="first_name" />
+      </article>
+
+      <article>
+        <label for="last_name">Last name:</label>
+        <input type="text" name="last_name" id="last_name" />
+      </article>
+
+      <article>
+        <label for="school_name">Email address:</label>
+        <input type="email" name="email_addr" id="email_addr" />
+      </article>
+    </div>
+  </fieldset>
+  
+  <fieldset>
+    <legend>Student information</legend>
+
+    <div class="schooling">
+      <div class="school-info">
+        <article>
+          <label for="school_name">School name:</label>
+          <input type="text" name="school_name" id="school_name" />
+        </article>
+
+        <article id="major">
+          <label for="major-select">Major:</label>
+          <select id="major-select" name="major">
+            <option value="">Select a major...</option>
+            <option value="cis">Computer Information Systems</option>
+            <option value="gd">Graphic Design</option>
+            <option value="wdv">Web Development</option>
+          </select>
+        </article>
+      </div>
+
+      <fieldset>
+        <legend>Current grade level:</legend>
+
+          <article>
+            <input type="radio" id="high_school" name="grade_level" value="high_school" />
+            <label for="high_school">High school student</label>
+          </article>
+
+          <article>
+            <input type="radio" id="freshman" name="grade_level" value="freshman" />
+            <label for="freshman">Freshman</label>
+          </article>
+
+          <article>
+            <input type="radio" id="sophomore" name="grade_level" value="sophomore" />
+            <label for="sophomore">Sophomore</label>
+          </article>
+      </fieldset>
+    </div>
+  </fieldset>
+
+  <fieldset class="contact-method">
+    <legend>Contact options/methods</legend>
+    <fieldset id="checkboxes">
+        <article>
+          <input type="checkbox" id="program_info" name="contact_methods[]" value="program_info" />
+          <label for="program_info">Please contact me with program information</label>
+        </article>
+        <article>
+          <input type="checkbox" id="advisor" name="contact_methods[]" value="advisor" />
+          <label for="advisor">I would like to contact a program advisor</label>
+        </article>
+      </fieldset>
+  </fieldset>
+
+  <fieldset class="comments">
+    <legend>Any further comments?</legend>
+    <article>
+      <textarea name="comments" rows="5"></textarea>
+    </article>
+  </fieldset>
+
+  <article class="buttons">
+    <input type="submit" name="button" id="button" value="Submit" />
+    <input type="reset" name="button2" id="button2" value="Reset" />
+  </article>
+  
+</form>
+</body>
+
+</html>
