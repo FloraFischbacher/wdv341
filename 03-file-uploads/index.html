@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>5-1: File Uploads</title>
+</head>
+<body>
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    <label for="image-upload">
+        <h3>Select an image to upload:</h3>
+        <p>(Accepts: <code>.jpg</code>, <code>.png</code>, <code>.webp</code>; maximum file size of 8MB)</p>
+    </label>
+    <input type="file" id="image-upload" name="uploaded" accept="image/png, image/jpeg, image/webp">
+    <input type="submit" value="Upload Image" name="submit">
+</form>
+</body>
+</html>

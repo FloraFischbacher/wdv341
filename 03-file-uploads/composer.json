@@ -1,0 +1,14 @@
+{
+    "name": "flora/03-file-uploads",
+    "type": "project",
+    "require": {
+        "jcupitt/vips": "2.5.0",
+        "ext-ffi": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Flora Key"
+        }
+    ]
+}
