@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>PROJECT: Contact Form with Email</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Contact Form</h1>
+        </header>
+        <main>
+            <form
+                id="contact-form"
+                method="post"
+                action="./submit.php"
+            >
+                <section class="field" id="field-name">
+                    <label for="name" class="field-header"
+                        >What is your name?</label
+                    >
+                    <input type="text" id="name" name="name" />
+                </section>
+                <section class="field" id="field-email">
+                    <label for="email" class="field-header"
+                        >What is your email address?</label
+                    >
+                    <input type="email" id="email" name="email" />
+                </section>
+                <section class="field" id="field-confirm">
+                    <p class="field-header">
+                        Would you like to receive a confirmation email?
+                    </p>
+                    <article class="checkbox-entry">
+                        <input
+                            type="checkbox"
+                            id="confirm"
+                            name="confirm"
+                            checked
+                        />
+                        <label for="confirm"
+                            >Send me an email confirming that my form was
+                            submitted</label
+                        >
+                    </article>
+                </section>
+                <section class="field" id="field-type">
+                    <label for="reason-select" class="field-header"
+                        >What would you like to discuss with me?</label
+                    >
+                    <select id="reason-select" name="reason">
+                        <option value="">Please select a reason</option>
+                        <option value="sales">
+                            Promotions and collaborations
+                        </option>
+                        <option value="tech">
+                            Technical issues and security advisories
+                        </option>
+                        <option value="service">
+                            Service-related complaints
+                        </option>
+                        <option value="other">Other</option>
+                    </select>
+                </section>
+                <section class="field" id="field-comments">
+                    <label for="comments" class="field-header"
+                        >Any further comments?</label
+                    >
+                    <textarea
+                        id="comments"
+                        name="comments"
+                        rows="11"
+                    ></textarea>
+                </section>
+                <section id="submission-buttons">
+                    <button type="submit">Send contact request</button>
+                </section>
+            </form>
+        </main>
+        <footer></footer>
+    </body>
+</html>

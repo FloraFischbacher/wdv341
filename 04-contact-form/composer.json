@@ -1,0 +1,13 @@
+{
+    "name": "flora-fischbacher/contact-form",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.11"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Flora Fischbacher"
+        }
+    ]
+}
