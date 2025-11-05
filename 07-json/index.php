@@ -4,7 +4,7 @@ require "/var/sens/db.php";
 function select() {
     global $db;
 
-    $stmt = $db->prepare("SELECT event_id, event_name, event_description, event_presenter, event_date, event_time, event_date_inserted, event_date_updated FROM events");
+    $stmt = $db->prepare("SELECT event_id, event_name, event_description, event_presenter, event_date, event_time, event_date_inserted, event_date_updated FROM events WHERE event_id = 2");
     $stmt->execute();
     return $stmt;
 }
