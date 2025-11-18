@@ -1,7 +1,7 @@
 <?php
 namespace Page\Fetch;
 
-require "/home/flora/Projects/www/wdv341/99-db/db-new.php";
+require "/var/sens/db-new.php";
 
 use PDO, PDOStatement, PDOException;
 
